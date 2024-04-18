@@ -731,6 +731,18 @@ variable "ecs_private_subnet_ids" {
   description = "List of Private Subnet IDs to provision ECS Service onto if `var.network_mode = \"awsvpc\"`"
 }
 
+variable "codestar_connection_arn" {
+  type        = string
+  description = "CodeStar connection ARN required for Bitbucket / GitHub integration with CodePipeline"
+  default     = ""
+}
+
+variable "codestar_output_artifact_format" {
+  type        = string
+  description = "Output artifact type for Source stage in pipeline. Valid values are \"CODE_ZIP\" (default) and \"CODEBUILD_CLONE_REF\". See https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html"
+  default     = "CODE_ZIP"
+}
+
 variable "github_oauth_token" {
   type        = string
   description = "GitHub Oauth Token with permissions to access private repositories"
