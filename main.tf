@@ -189,8 +189,9 @@ module "ecs_alb_service_task" {
 
 module "ecs_codepipeline" {
   enabled = var.codepipeline_enabled
-  source  = "cloudposse/ecs-codepipeline/aws"
-  version = "0.33.0"
+  source  = "git@github.com:thoroai/terraform-aws-ecs-codepipeline?ref=feat/add-github-codestar-support"
+  #source  = "cloudposse/ecs-codepipeline/aws"
+  #version = "0.34.0"
 
   region                          = coalesce(var.region, data.aws_region.current.name)
   codestar_connection_arn         = var.codestar_connection_arn
